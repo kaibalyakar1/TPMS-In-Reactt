@@ -3,7 +3,7 @@ import { Container, Row, Col, ModalBody } from "reactstrap";
 import { Link,NavLink } from "react-router-dom";
 import "../../styles/header.css";
 import { Modal,ModalHeader } from "reactstrap";
-
+import cutmlogo from "../../assets/all-images/cutmlg.png"
 
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -31,53 +31,46 @@ const navLinks = [
 ]
 
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+  { id: 'SNo', label: 'SNo', minWidth: 1 },
+  { id: 'route', label: 'Route No', minWidth: 10 },
+  
   {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
+    id: 'station',
+    label: 'Station',
+    minWidth: 10,
+    align: 'left',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
+    id: 'bus',
+    label: 'Bus No',
+    minWidth: 100,
+    align: 'left',
     format: (value) => value.toLocaleString('en-US'),
   },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
+
+ 
+  { id: 'fees', label: 'Fees', minWidth: 10 },
+
+  { id: 'driver', label: 'Driver Name', minWidth: 10 },
+  { id: 'drivermo', label: 'MOB NO', minWidth: 10 },
 ];
 
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
+function createData(SNo,route ,  station, bus,fees,driver,drivermo) {
+  // const density = population / size;
+  return {SNo, route, station, bus,fees,driver,drivermo};
 }
 
+
 const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
+  createData(1,'R-01', 'LINKROAD(CTC)-CUTM', 'OD021234', 70000,'Kaibalya',7978797141),
+  createData(2,'R-02', 'BADAMBADI(CTC)-CUTM', 'OD021234',68000,'Amit',123456789),
+  createData(3,'R-03', 'KHURDHA-CUTM', 'OD021234', 40000,'Vicky',111123456),
+  createData(4,'R-04', 'JAYDEV VIHAR(BBSR)-CUTM', 'OD021234', 50000,'Swosti',543244551),
+  createData(5,'R-05', 'JAANLA-CUTM(BBSR)', 'OD021234', 30000,'Om prakash',34521134),
+  createData(6,'R-06', 'SUNDARPADA(KHURDHA)-CUTM', 'OD021234', 35000,'Asutosh',999934233),
+  createData(7,'R-07', 'JATNI(KHURDHA)-CUTM', 'OD021234', 20000,'Saswat',8453454322),
 ];
 
 
@@ -132,10 +125,10 @@ const Header = () => {
               <div className="logo">
                 <h1>
                   <Link to="/home" className="d-flex align-items-center gap-3">
-                    <i class="ri-bus-wifi-line"></i>
+                    <img src={cutmlogo} alt="" className="imo"/>
                     <span>
                       Acquire Your Seat <br />
-                      Routes
+                      
                     </span>
                   </Link>
                 </h1>
@@ -170,7 +163,7 @@ const Header = () => {
                 >
                 <ModalHeader 
                  toggle={()=> setmodal(!modal)}>
-               Popup
+               CUTM || Route List
                 </ModalHeader>
                 <ModalBody>
 
@@ -181,7 +174,7 @@ const Header = () => {
           <TableHead>
             <TableRow>
               <TableCell align="center" colSpan={2}>
-                Country
+               
               </TableCell>
               <TableCell align="center" colSpan={3}>
                 Details

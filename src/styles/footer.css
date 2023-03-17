@@ -3,7 +3,7 @@
     --black:#000;
     --dark:#1E1E1E;
     --gray:rgba(1,1,1,0.6);
-    --lite:rgba(255,255,255,0.6);
+    --lite:#FFF;
     --primary:#002347;
     --secondary:#fdc632;
 }
@@ -131,7 +131,7 @@ fieldset{
                FOOTER
 ****************************/
 footer{
-    background-color:#FB2576;
+    background-color:#3246ce;
     color:var(--lite);
 }
 
